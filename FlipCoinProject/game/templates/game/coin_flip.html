@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coin Flip Game</title>
+</head>
+<body>
+    <h1>Coin Flip Game</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="choice">Choose head or tail:</label>
+        <select id="choice" name="choice">
+            <option value="head">Head</option>
+            <option value="tail">Tail</option>
+        </select>
+        <button type="submit">Flip Coin</button>
+    </form>
+    {% if result is not None %}
+        <h2>The coin landed on: {{ coin_flip }}</h2>
+        {% if result %}
+            <p>Congratulations! You guessed correctly.</p>
+        {% else %}
+            <p>Sorry, you guessed incorrectly.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
