@@ -1,0 +1,12 @@
+def check_frequency(numbers):
+    f = {}
+    for num in numbers:
+        if num in f:
+            f[num]+=1
+        else:
+            f[num]=1
+    return f
+
+numbers = [2,4,5,6,7,8,9,2,3,2,4,5,5]
+print(check_frequency(numbers))
+
