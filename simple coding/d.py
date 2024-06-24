@@ -1,4 +1,4 @@
-word='PYTHONCODING'
+word='PYTHON'
 
 for i  in range(len(word)):
     for j in range(i+1):
