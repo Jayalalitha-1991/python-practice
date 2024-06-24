@@ -2,25 +2,81 @@
 <html>
 <head>
     <title>Coin Flip Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #d1e424;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        h1 {
+            color: #323cd3;
+        }
+        form {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        select {
+            padding: 20px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #d350c8;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4682b4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #5a9bd3;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Coin Flip Game</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label for="choice">Choose head or tail:</label>
-        <select id="choice" name="choice">
-            <option value="head">Head</option>
-            <option value="tail">Tail</option>
-        </select>
-        <button type="submit">Flip Coin</button>
-    </form>
-    {% if result is not None %}
-        <h2>The coin landed on: {{ coin_flip }}</h2>
-        {% if result %}
-            <p>Congratulations! You guessed correctly.</p>
-        {% else %}
-            <p>Sorry, you guessed incorrectly.</p>
+    <div class="container">
+        <h1>Coin Flip Game</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="choice">Choose head or tail:</label>
+            <select id="choice" name="choice">
+                <option value="head">Head</option>
+                <option value="tail">Tail</option>
+            </select>
+            <button type="submit">Flip Coin</button>
+        </form>
+        {% if result is not None %}
+            <div class="result">
+                <h2>The coin landed on: {{ coin_flip }}</h2>
+                {% if result %}
+                    <p>Congratulations! You guessed correctly.</p>
+                {% else %}
+                    <p>Sorry, you guessed incorrectly.</p>
+                {% endif %}
+            </div>
         {% endif %}
-    {% endif %}
+    </div>
 </body>
 </html>
