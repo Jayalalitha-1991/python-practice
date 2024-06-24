@@ -1,4 +1,4 @@
-word='CODEBOARD'
+word='PYTHONCODING'
 
 for i  in range(len(word)):
     for j in range(i+1):
